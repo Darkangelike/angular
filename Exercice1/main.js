@@ -56,7 +56,6 @@ document.querySelector("#albumSubmit").addEventListener("click", addAlbum);
 
  function displayForm() {
      form.classList.toggle("hide");
-     console.log("ok");
  };
 
  /*************************************
@@ -73,7 +72,6 @@ function addAlbum(event) {
         }
     albumList.push(object)
     displayAlbums();
-    console.log(albumList);
     form.classList.add("hide")
 }
 
@@ -91,7 +89,6 @@ function addAlbum(event) {
     })
     html += "</ul>"
     content.innerHTML = html;
-    console.log(html);
  }
  
  /*************************************

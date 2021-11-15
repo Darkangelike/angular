@@ -18,6 +18,12 @@
   display: none;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /************************************
 *************************************
 ***********CSS SECTIONS**************
@@ -53,14 +59,11 @@ nav ul li {
 
 /*********** SECTION BUTTONS ***************/
 
-main #addButton button {
+main #addButton {
   justify-content: center;
 }
 
 /*********** SECTION #CONTENT ***************/
-
-#content {
-}
 
 #content ul {
   display: flex;
@@ -76,17 +79,30 @@ main #content ul li img {
 }
 
 /*********** SECTION ***************/
+
+#form {
+  background-color: ;
+}
+
 /***********   FORM  ***************/
 
 #form {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
+}
+
+#form input[type="submit"] {
+  margin: 10px;
 }
 
 /**********************************
 **************FOOTER***************
 ***********************************/
 
-/*********** CONTACT ***************/
-
 /*********** CREDITS ***************/
+
+footer {
+  text-align: center;
+}

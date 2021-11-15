@@ -30,6 +30,7 @@ const albumPicture = document.querySelector("#albumPicture")
 
 images.forEach(img => {
     img.addEventListener("mouseover", displayButtons)
+    img.addEventListener("click", displayInfo)
 });
 
 document.querySelector("#albumSubmit").addEventListener("click", addAlbum);
@@ -75,7 +76,6 @@ function addAlbum(event) {
     form.classList.add("hide")
 }
 
- 
  /*************************************
  ****   FUNCTION DISPLAY ALBUMS   *****
  **************************************/
@@ -92,8 +92,12 @@ function addAlbum(event) {
  }
  
  /*************************************
- **** FUNCTION  *****
+ ****    FUNCTION DISPLAY INFO    *****
  **************************************/
+
+ function displayInfo() {
+     
+ }
 
  
  /*************************************

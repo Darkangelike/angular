@@ -65,14 +65,16 @@ document.querySelector("#albumSubmit").addEventListener("click", addAlbum);
 function addAlbum(event) {
      event.preventDefault();
     let object = new Object();
-    object.title = albumTitle;
-    object.artist = albumArtist;
-    if (albumPicture.length == 0) {
+    object.title = albumTitle.value;
+    object.artist = albumArtist.value;
+    if (albumPicture.value.length == 0) {
         object.image = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png"} else {
-    object.image = albumPicture;
+    object.image = albumPicture.value;
         }
     albumList.push(object)
     displayAlbums();
+    console.log(albumList);
+    form.classList.add("hide")
 }
 
  
@@ -81,14 +83,15 @@ function addAlbum(event) {
  **************************************/
 
  function displayAlbums() {
-     let html = "<ul><li>"
+     let html = "<ul>"
     albumList.forEach(album => {
-        html += `<img src="${album.image}" alt="${album.title} cover picture"></img>
+        html += `<li><img src="${album.image}" alt="${album.title} cover picture"></img>
         <p><strong>${album.title}</strong><br>
         <em>${album.artist}</em></p></li>`
     })
-    html += "</li></ul>"
+    html += "</ul>"
     content.innerHTML = html;
+    console.log(html);
  }
  
  /*************************************

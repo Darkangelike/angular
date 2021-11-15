@@ -60,7 +60,9 @@ main #addButton button {
 /*********** SECTION #CONTENT ***************/
 
 #content {
-  padding: 20px;
+}
+
+#content ul {
   display: flex;
 }
 
@@ -71,10 +73,6 @@ main #content ul li {
 
 main #content ul li img {
   width: 250px;
-}
-
-main #content ul li p button {
-  margin-left: 10px;
 }
 
 /*********** SECTION ***************/

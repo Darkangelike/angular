@@ -22,12 +22,28 @@
         </nav>
     </header>
     <main>
-        <section>
+        <section id="addButton">
+                <button type="submit" value="Add an album">Add an album</button>
+        </section>
+        <section id="content">
             <ul>
-                <li><img src=""></img>
-                    <p><strong>Album title</strong><br>
+                <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png"></img>
+                    <p><strong>Album title</strong><button type="submit" data-mode="edit">Edit</button><button type="submit" data-mode="delete">Delete</button><br>
                     <em>Artist name</em></p></li>
             </ul>
+        </section>
+        <section id="form" class="hide">
+            <h1>Add an album</h1>
+            <form action="">
+                <input type="text" id="albumTitle" placeholder="Album title..." required></input>
+                <input type="text" id="albumArtist" placeholder="Artist name..." required></input>
+                <input type="text" id="albumPicture" placeholder="Album picture url"></input>
+                <input type="text" placeholder="Album title..."></input>
+                <input type="text" placeholder="Album title..."></input>
+                <input type="text" placeholder="Album title..."></input>
+                <input type="text" placeholder="Album title..."></input>
+                <input type="submit" id="albumSubmit" value="Ajouter"></input>
+            </form>
         </section>
     </main>
     <footer>

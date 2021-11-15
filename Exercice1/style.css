@@ -14,6 +14,10 @@
 *************************************
 ************************************/
 
+.hide {
+  display: none;
+}
+
 /************************************
 *************************************
 ***********CSS SECTIONS**************
@@ -47,20 +51,39 @@ nav ul li {
 ****************MAIN***************
 ***********************************/
 
-/*********** SECTION ***************/
+/*********** SECTION BUTTONS ***************/
 
-main section {
-  padding: 50px;
+main #addButton button {
+  justify-content: center;
+}
+
+/*********** SECTION #CONTENT ***************/
+
+#content {
+  padding: 20px;
   display: flex;
 }
 
-main section ul li {
+main #content ul li {
   margin: 0 20px;
+  text-align: center;
+}
+
+main #content ul li img {
+  width: 250px;
+}
+
+main #content ul li p button {
+  margin-left: 10px;
 }
 
 /*********** SECTION ***************/
+/***********   FORM  ***************/
 
-/*********** SECTION ***************/
+#form {
+  justify-content: center;
+  text-align: center;
+}
 
 /**********************************
 **************FOOTER***************

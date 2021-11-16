@@ -23,6 +23,10 @@
   justify-content: center;
   align-items: center;
 }
+/* 
+.button {
+  display: none;
+} */
 
 /************************************
 *************************************
@@ -65,32 +69,36 @@ main #addButton {
 
 /*********** SECTION #CONTENT ***************/
 
-#content ul {
+#content ul:first-child {
   display: flex;
+  justify-content: center;
 }
 
-main #content ul li {
+#content ul li {
   margin: 0 20px;
   text-align: center;
 }
 
-main #content ul li img {
+#content ul li img {
   width: 250px;
+}
+
+#content img:hover + .hide,
+.hide:hover {
+  display: inline-block;
 }
 
 /*********** SECTION ***************/
 
 #form {
-  background-color: ;
+  text-align: center;
 }
-
 /***********   FORM  ***************/
 
-#form {
+#form form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center;
 }
 
 #form input[type="submit"] {

@@ -15,27 +15,12 @@ let albumList = [
         tracks: ["First Time", "Higher", "The One", "Fever", "Body Language", "Cry", "Store", "Roses"]
     }
 ]
-let images = document.querySelectorAll("img");
 const form = document.querySelector("#form");
 const content = document.querySelector("#content")
-const albumTitle = document.querySelector("#albumTitle")
-const albumArtist = document.querySelector("#albumArtist")
-const albumPicture = document.querySelector("#albumPicture")
-
-/***************************************************
-****************************************************
-********************** EVENTS **********************
-****************************************************
-****************************************************/
-
-images.forEach(img => {
-    img.addEventListener("mouseover", displayButtons)
-    img.addEventListener("click", displayInfo)
-});
-
-document.querySelector("#albumSubmit").addEventListener("click", addAlbum);
-
-
+const albumTitle = document.querySelector("#Title")
+const albumArtist = document.querySelector("#Artist")
+const albumPicture = document.querySelector("#Picture")
+var element_to_scroll_to = document.getElementById('form');
 
 /***************************************************
 ****************************************************
@@ -48,7 +33,7 @@ document.querySelector("#albumSubmit").addEventListener("click", addAlbum);
  **************************************/
 
  function displayButtons () {
-
+    console.log("mouseover ok");
  };
  
  /*************************************
@@ -57,6 +42,8 @@ document.querySelector("#albumSubmit").addEventListener("click", addAlbum);
 
  function displayForm() {
      form.classList.toggle("hide");
+     form.classList.toggle("display")
+     element_to_scroll_to.scrollIntoView();
  };
 
  /*************************************
@@ -74,6 +61,8 @@ function addAlbum(event) {
     albumList.push(object)
     displayAlbums();
     form.classList.add("hide")
+    // document.querySelector("form").reset();
+    console.log("ok");
 }
 
  /*************************************
@@ -82,13 +71,32 @@ function addAlbum(event) {
 
  function displayAlbums() {
      let html = "<ul>"
+     let index = 0;
     albumList.forEach(album => {
-        html += `<li><img src="${album.image}" alt="${album.title} cover picture"></img>
+        html += `<li><img data-index="${index}" src="${album.image}" alt="${album.title} cover picture"></img>
+        <ul class="hide">
+            <li><button data-index="${index}" type="submit" class="edit" value="edit">Edit</button></li>
+            <li><button data-index="${index}" type="submit" class="delete" value="delete">Delete</button></li>
+        </ul>
         <p><strong>${album.title}</strong><br>
-        <em>${album.artist}</em></p></li>`
+        <em>${album.artist}</em></p></li>`;
+        index++
     })
     html += "</ul>"
     content.innerHTML = html;
+    let images = document.querySelectorAll("img");
+    images.forEach(img => {
+    img.addEventListener("mouseover", displayButtons);
+    img.addEventListener("click", displayInfo);
+});
+    let buttonsEdit = document.querySelectorAll(`#content button[class="edit"]`)
+    buttonsEdit.forEach(button => {
+        button.addEventListener("click", editAlbum)
+    })
+    let buttonsDelete = document.querySelectorAll(`#content button[class="delete"]`)
+    buttonsDelete.forEach(button => {
+        button.addEventListener("click", deleteAlbum)
+    })
  }
  
  /*************************************
@@ -96,14 +104,39 @@ function addAlbum(event) {
  **************************************/
 
  function displayInfo() {
-     
+     console.log("click ok");
  }
 
  
- /*************************************
- **** FUNCTION  *****
- **************************************/
+//  /*************************************
+//  ****    FUNCTION FETCH INFO      *****
+//  **************************************/
 
+function fetchInfo (url) {
+    
+}
+
+
+//  /*************************************
+//  ****    FUNCTION EDIT ALBUM      *****
+//  **************************************/
+
+function editAlbum() {
+    form.classList.remove("hide");
+    let i = this.dataset.index;
+    
+    console.log(albumList[i].title);
+}
+
+
+//  /*************************************
+//  ****    FUNCTION DELETE ALBUM    *****
+//  **************************************/
+
+function deleteAlbum() {
+    albumList.splice(this.dataset.index, 1)
+    displayAlbums();
+}
 
 /***************************************************
 ****************************************************
@@ -113,7 +146,19 @@ function addAlbum(event) {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    displayAlbums();
+
+    
+/***************************************************
+****************************************************
+********************** EVENTS **********************
+****************************************************
+****************************************************/
     document.querySelector("#addButton").addEventListener("click", displayForm);
+    document.querySelector("form").addEventListener("submit", addAlbum);
+
+
+     displayAlbums();
 
 })
+
+// https://images.genius.com/ab2e5b1b69b740dea2fb7dfc27b776ca.1000x1000x1.jpg

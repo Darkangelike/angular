@@ -90,7 +90,11 @@ function addAlbum(event) {
         object.genre =document.querySelector("#Genre").value
     }
 
-    albumList.push(object)
+    if (form.classList.contains("edit")) {
+        console.log(this);
+    } else {
+        albumList.push(object)
+    }
     displayAlbums();
     form.classList.add("hide")
     // document.querySelector("form").reset();
@@ -165,6 +169,7 @@ function editAlbum() {
     // document.querySelector("#duration").value = albumList[i].duration
     scroll_to_form.scrollIntoView();
     console.log(albumList[i].title);
+    form.classList.add("edit")
 }
 
 

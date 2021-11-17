@@ -24,6 +24,7 @@ const albumTitle = document.querySelector("#Title")
 const albumArtist = document.querySelector("#Artist")
 const albumPicture = document.querySelector("#Picture")
 var scroll_to_form = document.getElementById('form');
+let i;
 
 
 /***************************************************
@@ -47,7 +48,6 @@ var scroll_to_form = document.getElementById('form');
  **************************************/
 
  function displayButtons () {
-    console.log("mouseover ok");
  };
  
  /*************************************
@@ -75,30 +75,30 @@ function addAlbum(event) {
     if (document.querySelector("#Label").value.length == 0) {
         object.label = "N/A"
     } else {
-        object.label =document.querySelector("#Label").value
+        object.label = document.querySelector("#Label").value
     }
 
     if (document.querySelector("#Year").value.length == 0) {
         object.year = "N/A"
     } else {
-        object.year =document.querySelector("#Year").value
+        object.year = document.querySelector("#Year").value
     }
 
     if (document.querySelector("#Genre").value.length == 0) {
         object.genre = "N/A"
     } else {
-        object.genre =document.querySelector("#Genre").value
+        object.genre = document.querySelector("#Genre").value
     }
 
-    if (form.classList.contains("edit")) {
-        console.log(this);
+    if (form.dataset.mode == "edit") {
+        albumList[i] = object
     } else {
         albumList.push(object)
     }
     displayAlbums();
     form.classList.add("hide")
     // document.querySelector("form").reset();
-    console.log("ok");
+    form.dataset.mode = "add"
 }
 
  /*************************************
@@ -115,7 +115,8 @@ function addAlbum(event) {
             <li><button data-index="${index}" type="submit" class="delete" value="delete">Delete</button></li>
         </ul>
         <p><strong>${album.title}</strong><br>
-        <em>${album.artist}</em></p></li>`;
+        ${album.artist}<br>
+        <em>${album.year}</em></p></li>`;
         index++
     })
     html += "</ul>"
@@ -143,15 +144,16 @@ function addAlbum(event) {
      console.log("click ok");
  }
 
- 
 //  /*************************************
 //  ****    FUNCTION FETCH INFO      *****
 //  **************************************/
 
 function fetchInfo (url) {
-    
+    fetch(url)
+    .then(response => response.json())
+    .then(datas => albumList = datas)
+    .then(error => alert("Error :" + error));
 }
-
 
 //  /*************************************
 //  ****    FUNCTION EDIT ALBUM      *****
@@ -159,7 +161,7 @@ function fetchInfo (url) {
 
 function editAlbum() {
     form.classList.remove("hide");
-    let i = this.dataset.index;
+    i = this.dataset.index;
     document.querySelector("#Title").value = albumList[i].title
     document.querySelector("#Artist").value = albumList[i].artist
     document.querySelector("#Picture").value = albumList[i].image
@@ -168,8 +170,7 @@ function editAlbum() {
     document.querySelector("#Genre").value = albumList[i].genre
     // document.querySelector("#duration").value = albumList[i].duration
     scroll_to_form.scrollIntoView();
-    console.log(albumList[i].title);
-    form.classList.add("edit")
+    form.dataset.mode = "edit"
 }
 
 

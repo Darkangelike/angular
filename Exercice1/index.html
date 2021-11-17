@@ -29,7 +29,7 @@
         <section id="content">
             <ul>
                 <li><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png"></img>
-                    <ul>
+                    <ul id="buttonslist">
                         <li><button type="submit" id="edit" class="button hide" value="edit">Edit</button></li>
                         <li><button type="submit" id="delete" class="button hide" value="delete">Delete</button></li>
                     </ul>
@@ -39,7 +39,7 @@
         </section>
         <section id="form" class="hide">
             <h1>Add an album</h1>
-            <form action="">
+            <form data-mode="add" action="">
                 <ul>
                     <li><input type="text" id="Title" placeholder="Album title..." required></input></li>
                     <li><input type="text" id="Artist" placeholder="Artist name..." required></input></li>
@@ -47,7 +47,7 @@
                     <li><input type="text" id="Label" placeholder="Label"></input></li>
                     <li><input type="text" id="Year" placeholder="Year"></input></li>
                     <li><input type="text" id="Genre" placeholder="Genre"></input></li>
-                    <!-- <li><input type="text" id="duration" placeholder="Duration"></input></li> -->
+                    <li><input type="text" id="Duration" placeholder="Duration"></input></li>
                     <li><input type="submit" id="Submit" value="Ajouter"></input></li>
                 </ul>
             </form>

@@ -16,7 +16,15 @@ let albumList = [
         genre: "pop",
         duration: "N/A",
         tracks: ["First Time", "Higher", "The One", "Fever", "Body Language", "Cry", "Store", "Roses"]
-    }
+    }, 
+    // {
+    //     title: "Reboot",
+    //     artist: "Wonder Girls",
+    //     image: "https://lh3.googleusercontent.com/coYPB2bJkQftAwk-9HxPF5kmMRyliqyuoAsggq5kZ5rwRecmU9BkiPTRupr1k0-oyvwRbqpcZA805Emr0Y-3tpvnJbORdMAxoDI=w960-rj-l80-nu-e365",
+    //     label: "JYP",
+    //     year: 2015,
+    //     genre
+    // }
 ]
 const form = document.querySelector("#form");
 const content = document.querySelector("#content")
@@ -58,6 +66,7 @@ let i;
      form.classList.toggle("hide");
      form.classList.toggle("display")
      scroll_to_form.scrollIntoView();
+     form.dataset.mode = "add";
  };
 
  /*************************************
@@ -68,26 +77,32 @@ function addAlbum(event) {
     let object = new Object();
     object.title = albumTitle.value;
     object.artist = albumArtist.value;
-    if (albumPicture.value.length == 0) {
+    if (isEmptyString(albumPicture.value)) {
         object.image = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png"} else {
     object.image = albumPicture.value;
         }
-    if (document.querySelector("#Label").value.length == 0) {
+    if (isEmptyString(document.querySelector("#Label").value)) {
         object.label = "N/A"
     } else {
         object.label = document.querySelector("#Label").value
     }
 
-    if (document.querySelector("#Year").value.length == 0) {
+    if (isEmptyString(document.querySelector("#Year").value)) {
         object.year = "N/A"
     } else {
         object.year = document.querySelector("#Year").value
     }
 
-    if (document.querySelector("#Genre").value.length == 0) {
+    if (isEmptyString(document.querySelector("#Genre").value)) {
         object.genre = "N/A"
     } else {
         object.genre = document.querySelector("#Genre").value
+    }
+
+    if (isEmptyString(document.querySelector("#Duration").value)) {
+        object.duration = "N/A"
+    } else {
+        object.duration = document.querySelector("#Duration").value
     }
 
     if (form.dataset.mode == "edit") {
@@ -106,10 +121,10 @@ function addAlbum(event) {
  **************************************/
 
  function displayAlbums() {
-     let html = "<ul>"
+     let html = `<ul class="container">`
      let index = 0;
     albumList.forEach(album => {
-        html += `<li><img data-index="${index}" src="${album.image}" alt="${album.title} cover picture"></img>
+        html += `<li><img class="transparent" data-index="${index}" src="${album.image}" alt="${album.title} cover picture"></img>
         <ul class="hide">
             <li><button data-index="${index}" type="submit" class="edit" value="edit">Edit</button></li>
             <li><button data-index="${index}" type="submit" class="delete" value="delete">Delete</button></li>
@@ -160,6 +175,7 @@ function fetchInfo (url) {
 //  **************************************/
 
 function editAlbum() {
+    console.log(this);
     form.classList.remove("hide");
     i = this.dataset.index;
     document.querySelector("#Title").value = albumList[i].title
@@ -183,6 +199,19 @@ function deleteAlbum() {
     displayAlbums();
 }
 
+ /*****************************************
+ **** FUNCTION IS EMPTY STRING (TRIM) *****
+ ******************************************/
+ 
+ function isEmptyString(string) {
+	let empty = false;
+	let stringWithoutSpace = string.trim();
+	if (stringWithoutSpace.length == 0) {
+		empty = true;
+	}	
+	return empty;
+ }
+
 /***************************************************
 ****************************************************
 ********************** CODE ************************
@@ -191,6 +220,7 @@ function deleteAlbum() {
 
 
      displayAlbums();
+
 
 
 // https://images.genius.com/ab2e5b1b69b740dea2fb7dfc27b776ca.1000x1000x1.jpg

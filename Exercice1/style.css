@@ -8,6 +8,17 @@
 *************************************
 ************************************/
 
+button {
+  background-color: skyblue;
+  border: 1px;
+  border-radius: 25px;
+  padding: 5px;
+}
+
+button:hover {
+  background-color: white;
+}
+
 /***********************************
 *************************************
 **********GLOBAL CLASSES************
@@ -28,6 +39,10 @@
   display: none;
 } */
 
+.container {
+  position: relative;
+}
+
 /************************************
 *************************************
 ***********CSS SECTIONS**************
@@ -37,6 +52,7 @@
 body {
   background-color: darkblue;
   color: white;
+  position: relative;
 }
 
 /***********************************
@@ -82,11 +98,20 @@ main #addButton {
 
 #content ul li img {
   width: 250px;
+  opacity: 1;
+  display: block;
 }
 
 #content img:hover + .hide,
 .hide:hover {
   display: inline-block;
+}
+
+#buttonslist {
+}
+
+.container:hover img:hover {
+  border: 10px solid rgba(255, 255, 255, 0.35);
 }
 
 /*********** SECTION ***************/
@@ -104,6 +129,10 @@ main #addButton {
 
 #form input[type="submit"] {
   margin: 10px;
+}
+
+form ul li input:not(input[type="submit"]) {
+  width: 200px;
 }
 
 /**********************************

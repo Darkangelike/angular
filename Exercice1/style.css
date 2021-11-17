@@ -98,19 +98,17 @@ main #addButton {
 
 #content ul li img {
   width: 250px;
-  opacity: 1;
-  display: block;
 }
 
 #content img:hover + .hide,
 .hide:hover {
-  display: inline-block;
-}
-
-#buttonslist {
+  display: block;
+  margin-top: -100px;
 }
 
 .container:hover img:hover {
+  opacity: 1;
+  display: block;
   border: 10px solid rgba(255, 255, 255, 0.35);
 }
 

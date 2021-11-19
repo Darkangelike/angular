@@ -9,7 +9,7 @@ let operator = (document.querySelector("#operation") as HTMLInputElement).value;
 
 // function CALCULATE
 // this: HTMLElement, ev: Event
-function calculate(ev: Event, num1, num2) {
+function calculate(this: any, event: Event, num1, num2) {
 	event.preventDefault();
 	let result: number;
 	if (
@@ -45,4 +45,6 @@ function calculate(ev: Event, num1, num2) {
 
 function isEmptyString(string) {}
 
-document.querySelector("form").addEventListener("submit", calculate);
+let submitform = document
+	.querySelector("form")
+	.addEventListener("submit", calculate);

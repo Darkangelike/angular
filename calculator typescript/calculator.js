@@ -6,7 +6,7 @@ var content = document.querySelector("#content");
 var operator = document.querySelector("#operation").value;
 // function CALCULATE
 // this: HTMLElement, ev: Event
-function calculate(ev, num1, num2) {
+function calculate(event, num1, num2) {
     event.preventDefault();
     var result;
     if (operator != "+" &&
@@ -35,4 +35,6 @@ function calculate(ev, num1, num2) {
 }
 // function isEmptyString
 function isEmptyString(string) { }
-document.querySelector("form").addEventListener("submit", calculate);
+var submitform = document
+    .querySelector("form")
+    .addEventListener("submit", calculate);

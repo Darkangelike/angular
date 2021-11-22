@@ -14,6 +14,10 @@ module.exports = {
 		rules: [
 			//Configuration compilation TS
 			{
+				test: /\.css$/i,
+				use: ["style-loader", "css-loader"],
+			},
+			{
 				test: /\.ts$/,
 				use: "ts-loader",
 				exclude: /node_modules/,
@@ -25,7 +29,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: "src/index.html",
+			template: "src/html/index.html",
 		}),
 	],
 	devServer: {

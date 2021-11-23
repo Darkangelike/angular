@@ -1,6 +1,18 @@
+/****************************************************
+ ****************************************************
+ ********************  IMPORTS  *********************
+ ****************************************************
+ ****************************************************/
+
 import "./css/normalize.css";
 import "./css/base.css";
 import "./css/style.css";
+
+/****************************************************
+ ****************************************************
+ ******************** VARIABLES *********************
+ ****************************************************
+ ****************************************************/
 
 enum PEGIlist {
 	e = "Everyone",
@@ -25,8 +37,8 @@ type Game = {
 	publisher: string;
 	PEGI: string[];
 	year: number;
-	multiplayer: boolean;
-	online: boolean;
+	multiplayer: string;
+	online: string;
 	image: string;
 };
 
@@ -38,9 +50,10 @@ let zelda: Game = {
 	publisher: "Nintento",
 	PEGI: [PEGIlist.e, PEGIlist.c12],
 	year: 1998,
-	multiplayer: false,
-	online: false,
-	image: "images/The_Legend_of_Zelda_Ocarina_of_Time.jpg",
+	multiplayer: "Solo game",
+	online: "Local mode",
+	image:
+		"https://www.geekqc.ca/wp-content/uploads/2017/01/the-legend-of-zelda-ocarina-of-time.jpg-5.jpg",
 };
 
 let phasmophobia: Game = {
@@ -49,8 +62,8 @@ let phasmophobia: Game = {
 	publisher: "Kinetic Games",
 	PEGI: [PEGIlist.fear, PEGIlist.c18],
 	year: 2020,
-	multiplayer: true,
-	online: true,
+	multiplayer: "Up to 4 players",
+	online: "Online game mode only",
 	image: "./images/jeu-steam-phasmophobia-early-access-cover.jpg",
 };
 
@@ -60,8 +73,8 @@ let bustAMove: Game = {
 	publisher: "Taito",
 	PEGI: [PEGIlist.e],
 	year: 1994,
-	multiplayer: true,
-	online: false,
+	multiplayer: "1 to 2 players",
+	online: "Local mode",
 	image: "./images/index.jpg",
 };
 
@@ -71,19 +84,50 @@ let tetris: Game = {
 	publisher: "Electronic Arts",
 	PEGI: [PEGIlist.e],
 	year: 1984,
-	multiplayer: true,
-	online: true,
+	multiplayer: "1 to 2 players",
+	online: "Local and online mode",
 	image: "./images/Tetris_NES_cover_art.jpg",
 };
 
-gamesList.push(zelda);
+var scroll_to_form = document.getElementById("form");
+const form = document.querySelector("form");
 
-function displayOneItem(object: Object, targetContainerID: string) {
+/***************************************************
+ ****************************************************
+ ********************** EVENTS **********************
+ ****************************************************
+ ****************************************************/
+
+document.querySelector("button")?.addEventListener("click", displayForm);
+
+/****************************************************
+ ****************************************************
+ ******************** FUNCTIONS *********************
+ ****************************************************
+ ****************************************************/
+
+/****************************************
+ ****   FUNCTION DISPLAY ONE ITEM    *****
+ *****************************************/
+
+function displayOneItem(object: Game, targetContainerID: string) {
 	let content: HTMLElement = document.getElementById(
 		targetContainerID
 	) as HTMLElement;
 
-	// content.innerHTML =
+	let html: string = `<ul>
+	<li><img src= "${object.image}"></img></li>
+	<li><h2>${object.name}</h2></li>
+	<ul class="hide hover">
+		<li>By: ${object.publisher}</li>
+		<li>Age: ${object.PEGI}</li>
+		<li>Release date: ${object.year}</li>
+		<li>Multiplayer: ${object.multiplayer}</li>
+		<li>${object.online}</li>
+	</ul>
+	</ul>`;
+
+	content.innerHTML = html;
 }
 
 // let p = document.createElement("p");
@@ -94,7 +138,15 @@ function displayOneItem(object: Object, targetContainerID: string) {
 // 	.getElementById("monBeauDiv")
 // 	.insertAdjacentHTML("beforeend", `<p>Mon beau paragraphe</p>`);
 
+/****************************************
+ ****   FUNCTION DISPLAY ONE ITEM    *****
+ *****************************************/
+
 function displayList(list: Object[], targetContainerID: string) {}
+
+/****************************************
+ ****     FUNCTION ADD ONE ITEM      *****
+ *****************************************/
 
 function addOneItem(
 	list: Object[],
@@ -102,14 +154,40 @@ function addOneItem(
 	targetContainerID: string
 ) {}
 
+/****************************************
+ ****   FUNCTION REMOVE ONE ITEM    *****
+ *****************************************/
+
 function removeOneItem(
 	list: Object[],
 	indexToRemove: number,
 	targetContainerID: string
 ) {}
 
+/****************************************
+ ****    FUNCTION EDIT ONE ITEM      *****
+ *****************************************/
+
 function editOneItem(
 	list: Object[],
 	indexToEdit: number,
 	targetContainerID: string
 ) {}
+
+/****************************************
+ ****     FUNCTION DISPLAY FORM      *****
+ *****************************************/
+
+function displayForm() {
+	console.log("click ok");
+
+	form!.classList.toggle("hide");
+}
+
+/***************************************************
+ ****************************************************
+ ********************** CODE ************************
+ ****************************************************
+ ****************************************************/
+
+displayOneItem(zelda, "content");

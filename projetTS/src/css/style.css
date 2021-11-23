@@ -18,6 +18,18 @@ body {
 	text-align: center;
 }
 
+img {
+	width: 250px;
+}
+
+.hide {
+	display: none;
+}
+
+/* input[type="radio"] {
+	transform: scale(2);
+} */
+
 /***********************************
 *************************************
 **********GLOBAL CLASSES************
@@ -51,7 +63,38 @@ nav ul li {
 
 /*********** SECTION ***************/
 
-/*********** SECTION ***************/
+/*********** SECTION FORM ***************/
+
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+form input {
+	width: 20%;
+	border-radius: 15px;
+	margin: 5px 0;
+}
+
+form ul {
+	display: flex;
+	flex-direction: row;
+}
+
+form ul li {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+::placeholder {
+	font-style: italic;
+	font-size: 1em;
+	color: rgb(255, 255, 255);
+	background: rgb(12, 118, 126);
+	padding: 25px;
+}
 
 /*********** SECTION ***************/
 
@@ -62,3 +105,19 @@ nav ul li {
 /*********** CONTACT ***************/
 
 /*********** CREDITS ***************/
+
+footer {
+	font-size: 12px;
+}
+
+/* 
+
+            <label for="sex">You are :</label>
+            <input type="radio" id="sexChoice1" name="sex">
+            <label for="sexChoice1">Male</label>
+
+            <input type="radio" id="sexChoice2" name="sex">
+            <label for="sexChoice2">Female</label>
+
+            <input type="radio" id="sexChoice3" name="sex">
+            <label for="sexChoice3">Other</label> */

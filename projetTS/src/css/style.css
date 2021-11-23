@@ -78,6 +78,13 @@ form input {
 	margin: 5px 0;
 }
 
+form input[type="number"] {
+	font-style: italic;
+	font-size: 1em;
+	color: rgb(255, 255, 255);
+	background: rgb(12, 118, 126);
+}
+
 form ul {
 	display: flex;
 	flex-direction: row;
@@ -93,7 +100,6 @@ form ul li {
 	font-size: 1em;
 	color: rgb(255, 255, 255);
 	background: rgb(12, 118, 126);
-	padding: 25px;
 }
 
 /*********** SECTION ***************/

@@ -35,19 +35,19 @@
 			<input type="textarea" id="genre" placeholder="Genre"></input>
 			<input type="textarea" id="publisher" placeholder="Publisher"></input>
 			<input type="textarea" id="PEGI" placeholder="Title"></input>
-			<input type="textarea" id="year" placeholder="Year"></input>
+			<input type="number" id="year" placeholder="Year" min="1980" max="2022" step="1" value="2000"/>
 			<label for="multi">Multiplayer :</label>
 				<ul>
-					<li><input type="radio" id="multiY" name="multi"></input>
+					<li><input type="radio" id="multiY" name="multi"/>
 					<label for="multiY">Yes</label></li>
-					<li><input type="radio" id="multiN" name="multi"></input>
+					<li><input type="radio" id="multiN" name="multi"/>
 					<label for="multiN">No</label></li>
 				</ul>
 			<label for="online">Game mode :</input>
 				<ul>
 					<li><input type="radio" id="localmode" name="online">Local mode</input>
 					<label for="localmode"></label></li>
-					<li><input type="radio" id="onlinemode" name="online"></input>
+					<li><input type="radio" id="onlinemode" name="online"/>
 					<label for="onlinemode"></label>Online mode</li>
 				</ul>
 		</form>

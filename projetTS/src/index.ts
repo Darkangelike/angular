@@ -91,6 +91,14 @@ let tetris: Game = {
 
 var scroll_to_form = document.getElementById("form");
 const form = document.querySelector("form");
+const title = document.querySelector("#title");
+const image = document.querySelector("#image");
+const genre = document.querySelector("#genre");
+const publisher = document.querySelector("#publisher");
+const PEGI = document.querySelector("#PEGI");
+const year = document.querySelector("#year");
+const multi = document.querySelector("#multi");
+const online = document.querySelector("#online");
 
 /***************************************************
  ****************************************************

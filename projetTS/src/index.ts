@@ -19,20 +19,31 @@ enum PEGIlist {
 	ingamePurchases = "In-game Purchases",
 }
 
-type VideoGame = {
+type Game = {
 	name: string;
 	genre: string[];
 	publisher: string;
 	PEGI: string[];
 	year: number;
-	multiplayer: string;
+	multiplayer: boolean;
 	online: boolean;
 	image: string;
 };
 
-// let zelda: VideoGame = {
-// 	name: "Ocarina of Time",
-// 	genre: [PEGIlist.everyone, PEGIlist.class12],
-// };
+let gamesList = [];
 
-console.log("Hello world");
+let zelda: Game = {
+	name: "Ocarina of Time",
+	genre: ["Adventure,"],
+	publisher: "Nintento",
+	PEGI: [PEGIlist.everyone, PEGIlist.class12],
+	year: 1998,
+	multiplayer: false,
+	online: false,
+	image: "images/The_Legend_of_Zelda_Ocarina_of_Time.jpg",
+};
+
+gamesList.push(zelda);
+
+const content: HTMLElement = document.getElementById("content") as HTMLElement;
+content.innerHTML = "Hello World";

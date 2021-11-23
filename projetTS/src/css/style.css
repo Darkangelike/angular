@@ -9,13 +9,13 @@
 ************************************/
 
 body {
-	background-image: linear-gradient(
-			230deg,
-			rgba(124, 40, 99, 0.1),
-			rgba(124, 40, 99, 0.5) 90%
-		),
-		url(../images/m7967-swatch.jpg);
-	background-color: green;
+	height: 100%;
+	margin: 0;
+	background: linear-gradient(120deg, rgb(11, 93, 107), rgb(13, 126, 126) 70%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	color: white;
+	text-align: center;
 }
 
 /***********************************
@@ -35,6 +35,15 @@ body {
 ************************************/
 
 /*********** NAV BAR ***************/
+
+nav ul {
+	display: flex;
+	justify-content: center;
+}
+
+nav ul li {
+	padding-left: 15px;
+}
 
 /**********************************
 ****************MAIN***************

@@ -78,10 +78,38 @@ let tetris: Game = {
 
 gamesList.push(zelda);
 
-function displayOneItem(list: Object[], targetContainerID: string) {
+function displayOneItem(object: Object, targetContainerID: string) {
 	let content: HTMLElement = document.getElementById(
 		targetContainerID
 	) as HTMLElement;
 
 	// content.innerHTML =
 }
+
+// let p = document.createElement("p");
+// p.innerText = "Mon beau paragraphe";
+// document.getElementById("monBeauDiv").append(p);
+
+// document
+// 	.getElementById("monBeauDiv")
+// 	.insertAdjacentHTML("beforeend", `<p>Mon beau paragraphe</p>`);
+
+function displayList(list: Object[], targetContainerID: string) {}
+
+function addOneItem(
+	list: Object[],
+	objectToAdd: Object,
+	targetContainerID: string
+) {}
+
+function removeOneItem(
+	list: Object[],
+	indexToRemove: number,
+	targetContainerID: string
+) {}
+
+function editOneItem(
+	list: Object[],
+	indexToEdit: number,
+	targetContainerID: string
+) {}

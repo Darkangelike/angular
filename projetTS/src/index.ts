@@ -52,8 +52,7 @@ let zelda: Game = {
 	year: 1998,
 	multiplayer: "Solo game",
 	online: "Local mode",
-	image:
-		"https://www.geekqc.ca/wp-content/uploads/2017/01/the-legend-of-zelda-ocarina-of-time.jpg-5.jpg",
+	image: "./images/The_Legend_of_Zelda_Ocarina_of_Time_Logo.png",
 };
 
 let phasmophobia: Game = {
@@ -89,8 +88,8 @@ let tetris: Game = {
 	image: "./images/Tetris_NES_cover_art.jpg",
 };
 
-var scroll_to_form = document.getElementById("form");
 const form = document.querySelector("form");
+const submit = document.querySelector("#submit");
 const title = document.querySelector("#title");
 const image = document.querySelector("#image");
 const genre = document.querySelector("#genre");
@@ -107,6 +106,7 @@ const online = document.querySelector("#online");
  ****************************************************/
 
 document.querySelector("button")?.addEventListener("click", displayForm);
+submit?.addEventListener("submit", addOneItem);
 
 /****************************************************
  ****************************************************
@@ -156,11 +156,7 @@ function displayList(list: Object[], targetContainerID: string) {}
  ****     FUNCTION ADD ONE ITEM      *****
  *****************************************/
 
-function addOneItem(
-	list: Object[],
-	objectToAdd: Object,
-	targetContainerID: string
-) {}
+function addOneItem() {}
 
 /****************************************
  ****   FUNCTION REMOVE ONE ITEM    *****
@@ -187,9 +183,8 @@ function editOneItem(
  *****************************************/
 
 function displayForm() {
-	console.log("click ok");
-
 	form!.classList.toggle("hide");
+	form!.scrollIntoView();
 }
 
 /***************************************************

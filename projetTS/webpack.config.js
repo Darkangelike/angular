@@ -31,10 +31,13 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			template: "./src/html/index.html",
 		}),
+		new CopyWebpackPlugin({
+			patterns: [{ from: "src/images", to: "images" }],
+		}),
 	],
 	devServer: {
 		static: {
-			directory: "./dist",
+			directory: "./src",
 		},
 	},
 };

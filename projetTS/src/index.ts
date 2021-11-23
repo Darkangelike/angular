@@ -7,6 +7,7 @@
 import "./css/normalize.css";
 import "./css/base.css";
 import "./css/style.css";
+import "./game";
 
 /****************************************************
  ****************************************************
@@ -31,29 +32,40 @@ enum PEGIlist {
 	ingamePurchases = "In-game Purchases",
 }
 
-type Game = {
-	name: string;
-	genre: string[];
-	publisher: string;
-	PEGI: string[];
-	year: number;
-	multiplayer: string;
-	online: string;
-	image: string;
-};
+// type Game = {
+// 	name: string;
+// 	genre: string[];
+// 	publisher: string;
+// 	PEGI: string[];
+// 	year: number;
+// 	multiplayer: string;
+// 	online: string;
+// 	image: string;
+// };
 
 let gamesList = [];
 
-let zelda: Game = {
-	name: "Ocarina of Time",
-	genre: ["Adventure,"],
-	publisher: "Nintento",
-	PEGI: [PEGIlist.e, PEGIlist.c12],
-	year: 1998,
-	multiplayer: "Solo game",
-	online: "Local mode",
-	image: "./images/The_Legend_of_Zelda_Ocarina_of_Time_Logo.png",
-};
+// let zelda: Game = {
+// 	name: "Ocarina of Time",
+// 	genre: ["Adventure,"],
+// 	publisher: "Nintento",
+// 	PEGI: [PEGIlist.e, PEGIlist.c12],
+// 	year: 1998,
+// 	multiplayer: "Solo game",
+// 	online: "Local mode",
+// 	image: "./images/The_Legend_of_Zelda_Ocarina_of_Time_Logo.png"
+// };
+
+let zelda = new Game(
+	"Ocarina of Time",
+	["Adventure"],
+	"Nintendo",
+	["Age 12 and older"],
+	1998,
+	"Solo game",
+	"Local mode",
+	"./images/The_Legend_of_Zelda_Ocarina_of_Time_Logo.png"
+);
 
 let phasmophobia: Game = {
 	name: "Phasmophobia",
@@ -122,20 +134,6 @@ function displayOneItem(object: Game, targetContainerID: string) {
 	let content: HTMLElement = document.getElementById(
 		targetContainerID
 	) as HTMLElement;
-
-	let html: string = `<ul>
-	<li><img src= "${object.image}"></img></li>
-	<li><h2>${object.name}</h2></li>
-	<ul class="hide hover">
-		<li>By: ${object.publisher}</li>
-		<li>Age: ${object.PEGI}</li>
-		<li>Release date: ${object.year}</li>
-		<li>Multiplayer: ${object.multiplayer}</li>
-		<li>${object.online}</li>
-	</ul>
-	</ul>`;
-
-	content.innerHTML = html;
 }
 
 // let p = document.createElement("p");

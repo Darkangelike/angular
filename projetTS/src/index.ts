@@ -17,6 +17,7 @@ import { Game } from "./game";
 
 //  CONST
 
+const content = document.querySelector("#content");
 const form = document.querySelector("form");
 const submit = document.querySelector("#submit");
 const title = document.querySelector("#title");
@@ -52,48 +53,52 @@ enum PEGIlist {
 }
 
 let zelda = new Game(
+	0,
 	"Ocarina of Time",
 	["Adventure"],
 	"Nintendo",
 	["Age 12 and older"],
 	1998,
 	"Solo game",
-	"Local mode",
+	false,
 	"./images/The_Legend_of_Zelda_Ocarina_of_Time_Logo.png"
 );
 
-let phasmophobia: Game = {
-	name: "Phasmophobia",
-	genre: ["Horror"],
-	publisher: "Kinetic Games",
-	PEGI: [PEGIlist.fear, PEGIlist.c18],
-	year: 2020,
-	multiplayer: "Up to 4 players",
-	online: "Online game mode only",
-	image: "./images/jeu-steam-phasmophobia-early-access-cover.jpg",
-};
+let phasmophobia = new Game(
+	1,
+	"Phasmophobia",
+	["Horror"],
+	"Kinetic Games",
+	[PEGIlist.fear, PEGIlist.c18],
+	2020,
+	"Up to 4 players",
+	true,
+	"./images/jeu-steam-phasmophobia-early-access-cover.jpg"
+);
 
-let bustAMove: Game = {
-	name: "Bust-a-Move",
-	genre: ["Arcade"],
-	publisher: "Taito",
-	PEGI: [PEGIlist.e],
-	year: 1994,
-	multiplayer: "1 to 2 players",
-	online: "Local mode",
-	image: "./images/index.jpg",
-};
+let bustAMove = new Game(
+	2,
+	"Bust-a-Move",
+	["Arcade"],
+	"Taito",
+	[PEGIlist.e],
+	1994,
+	"1 to 2 players",
+	false,
+	"./images/index.jpg"
+);
 
-let tetris: Game = {
-	name: "tetris",
-	genre: ["puzzle", "arcade"],
-	publisher: "Electronic Arts",
-	PEGI: [PEGIlist.e],
-	year: 1984,
-	multiplayer: "1 to 2 players",
-	online: "Local and online mode",
-	image: "./images/Tetris_NES_cover_art.jpg",
-};
+let tetris = new Game(
+	3,
+	"tetris",
+	["puzzle", "arcade"],
+	"Electronic Arts",
+	[PEGIlist.e],
+	1984,
+	"1 to 2 players",
+	true,
+	"./images/Tetris_NES_cover_art.jpg"
+);
 
 /***************************************************
  ****************************************************
@@ -114,25 +119,65 @@ submit?.addEventListener("submit", addOneItem);
  ****   FUNCTION DISPLAY ONE ITEM    *****
  *****************************************/
 
-function displayOneItem(object: Game, targetContainerID: string) {
-	let content: HTMLElement = document.getElementById(
-		targetContainerID
+function displayOneItem(object: Game, containerID: string) {
+	// DECLARATIONS
+	let html: HTMLElement = document.createElement("li");
+	let img: HTMLElement = document.createElement("img");
+	let h2: HTMLElement = document.createElement("h2");
+	let ul: HTMLElement = document.createElement("ul");
+
+	// // Initialisation
+	let targetContainer: HTMLElement = document.getElementById(
+		containerID
 	) as HTMLElement;
+	img.setAttribute("src", `${object.image}`);
+	img.setAttribute("data-id", `${object.id}`);
+	h2.innerHTML = `${object.name}`;
+	ul.setAttribute("class", `hide hover`);
+	ul.setAttribute("id", `${object.id}`);
+
+	// Event listener on click on the image, toggle on off the information ul
+	img.addEventListener("click", function () {
+		ul.classList.toggle("hide");
+		ul.scrollIntoView();
+	});
+
+	// Initialising information in hidden ul
+	ul.innerHTML = `<li>Genre: ${object.genre}</li>
+	<li>Multiplayer : ${object.multiplayer}</li>
+	<li>Online : ${object.online ? "Yes" : `No`}</li>
+	<li>Year released : ${object.year}</li>
+	<li>Publisher : ${object.publisher}</li>
+	<li>PEGI : ${object.PEGI}</li>`;
+
+	// Building the html
+	html.appendChild(img);
+	html.appendChild(h2);
+	html.appendChild(ul);
+
+	// Injecting all the html in the targetContainer previously specified as function argument
+	targetContainer.appendChild(html);
 }
-
-// let p = document.createElement("p");
-// p.innerText = "Mon beau paragraphe";
-// document.getElementById("monBeauDiv").append(p);
-
-// document
-// 	.getElementById("monBeauDiv")
-// 	.insertAdjacentHTML("beforeend", `<p>Mon beau paragraphe</p>`);
 
 /****************************************
  ****   FUNCTION DISPLAY ONE ITEM    *****
  *****************************************/
 
-function displayList(list: Object[], targetContainerID: string) {}
+function displayList(list: Object[], targetContainerID: string) {
+	// DECLARATIONS
+	let article: HTMLDivElement = document.createElement("div");
+	let img: HTMLDivElement = document.createElement("img");
+	let ul: HTMLElement = document.createElement("ul");
+	let li: HTMLElement = document.createElement("li");
+
+	// // Initialisation
+	// img.setAttribute("src", `${object.image}`);
+
+	// li.appendChild(img);
+	// ul.appendChild(li);
+	// article.appendChild(ul);
+	// document.querySelector("#content")!.insertAdjacentHTML = article;
+}
 
 /****************************************
  ****     FUNCTION ADD ONE ITEM      *****

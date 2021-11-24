@@ -26,9 +26,11 @@ img {
 	display: none;
 }
 
-/* input[type="radio"] {
-	transform: scale(2);
-} */
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
 
 /***********************************
 *************************************
@@ -72,7 +74,7 @@ form {
 	align-items: center;
 }
 
-form input:not([type="submit"]) {
+form input:not([type="submit"]):not([type="radio"]) {
 	width: 20%;
 	border-radius: 15px;
 	margin: 5px 0;
@@ -84,16 +86,6 @@ form input[type="number"] {
 	color: rgb(255, 255, 255);
 	background: rgb(12, 118, 126);
 }
-
-form ul {
-	display: flex;
-	flex-direction: row;
-}
-
-/* form ul li {
-	padding-left: 10px;
-	padding-right: 10px;
-} */
 
 ::placeholder {
 	font-style: italic;

@@ -160,7 +160,7 @@ function displayOneItem(object: Game, containerID: string) {
 }
 
 /****************************************
- ****   FUNCTION DISPLAY ONE ITEM    *****
+ ****     FUNCTION DISPLAY LIST     *****
  *****************************************/
 
 function displayList(list: Object[], targetContainerID: string) {
@@ -183,7 +183,12 @@ function displayList(list: Object[], targetContainerID: string) {
  ****     FUNCTION ADD ONE ITEM      *****
  *****************************************/
 
-function addOneItem() {}
+function addOneItem() {
+	// Declarations
+	let index = 0;
+
+	// Initialisation
+}
 
 /****************************************
  ****   FUNCTION REMOVE ONE ITEM    *****

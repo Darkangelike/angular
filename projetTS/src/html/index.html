@@ -33,24 +33,27 @@
 			<input type="textarea" id="title" placeholder="Title"></input>
 			<input type="textarea" id="image" placeholder="Image url"></input>
 			<input type="textarea" id="genre" placeholder="Genre"></input>
-			<input type="textarea" id="publisher" placeholder="Publisher"></input>
-			<input type="textarea" id="PEGI" placeholder="Title"></input>
+			<div>
+				<label for="multi">Multiplayer :</label>
+				<br>
+				<input type="radio" id="multiY" name="multi"></input>
+				<label for="multiY">Yes</label>
+				<input type="radio" id="multiN" name="multi"></input>
+				<label for="multiN">No</label>
+			</div>
+			<div>
+				<label for="online">Game mode :</label>
+				<br>
+				<input type="radio" id="localmode" name="online"> Local mode</input>
+				<label for="localmode"></input>
+				<input type="radio" id="onlinemode" name="online"></input>
+				<label for="onlinemode"> Online mode</label>
+			</div>
+			<label for="year">Year released :</label>
 			<input type="number" id="year" placeholder="Year" min="1980" max="2022" step="1" value="2000"/>
-			<label for="multi">Multiplayer :</label>
-				<ul>
-					<li><input type="radio" id="multiY" name="multi"></input>
-					<label for="multiY">Yes</label></li>
-					<li><input type="radio" id="multiN" name="multi"></input>
-					<label for="multiN">No</label></li>
-				</ul>
-			<label for="online">Game mode :</label>
-				<ul>
-					<li><input type="radio" id="localmode" name="online">Local mode</input>
-					<label for="localmode"></input></li>
-					<li><input type="radio" id="onlinemode" name="online"></input>
-					<label for="onlinemode">Online mode</label></li>
-				</ul>
-				<input id="submit" type="submit" value="Ajouter"/>
+			<input type="textarea" id="publisher" placeholder="Publisher"></input>
+			<input type="textarea" id="PEGI" placeholder="PEGI rating"></input>
+			<input id="submit" type="submit" value="Ajouter"/>
 		</form>
 		</main>
 		<footer>

@@ -15,6 +15,25 @@ import { Game } from "./game";
  ****************************************************
  ****************************************************/
 
+//  CONST
+
+const form = document.querySelector("form");
+const submit = document.querySelector("#submit");
+const title = document.querySelector("#title");
+const image = document.querySelector("#image");
+const genre = document.querySelector("#genre");
+const publisher = document.querySelector("#publisher");
+const PEGI = document.querySelector("#PEGI");
+const year = document.querySelector("#year");
+const multi = document.querySelector("#multi");
+const online = document.querySelector("#online");
+
+// Not initialised
+
+let gamesList = [];
+
+// Initialised
+
 enum PEGIlist {
 	e = "Everyone",
 	c3 = "3 years old",
@@ -31,30 +50,6 @@ enum PEGIlist {
 	violence = "Violence",
 	ingamePurchases = "In-game Purchases",
 }
-
-// type Game = {
-// 	name: string;
-// 	genre: string[];
-// 	publisher: string;
-// 	PEGI: string[];
-// 	year: number;
-// 	multiplayer: string;
-// 	online: string;
-// 	image: string;
-// };
-
-let gamesList = [];
-
-// let zelda: Game = {
-// 	name: "Ocarina of Time",
-// 	genre: ["Adventure,"],
-// 	publisher: "Nintento",
-// 	PEGI: [PEGIlist.e, PEGIlist.c12],
-// 	year: 1998,
-// 	multiplayer: "Solo game",
-// 	online: "Local mode",
-// 	image: "./images/The_Legend_of_Zelda_Ocarina_of_Time_Logo.png",
-// };
 
 let zelda = new Game(
 	"Ocarina of Time",
@@ -99,17 +94,6 @@ let tetris: Game = {
 	online: "Local and online mode",
 	image: "./images/Tetris_NES_cover_art.jpg",
 };
-
-const form = document.querySelector("form");
-const submit = document.querySelector("#submit");
-const title = document.querySelector("#title");
-const image = document.querySelector("#image");
-const genre = document.querySelector("#genre");
-const publisher = document.querySelector("#publisher");
-const PEGI = document.querySelector("#PEGI");
-const year = document.querySelector("#year");
-const multi = document.querySelector("#multi");
-const online = document.querySelector("#online");
 
 /***************************************************
  ****************************************************

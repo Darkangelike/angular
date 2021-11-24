@@ -7,7 +7,7 @@
 import "./css/normalize.css";
 import "./css/base.css";
 import "./css/style.css";
-import "./game";
+import { Game } from "./game";
 
 /****************************************************
  ****************************************************
@@ -53,7 +53,7 @@ let gamesList = [];
 // 	year: 1998,
 // 	multiplayer: "Solo game",
 // 	online: "Local mode",
-// 	image: "./images/The_Legend_of_Zelda_Ocarina_of_Time_Logo.png"
+// 	image: "./images/The_Legend_of_Zelda_Ocarina_of_Time_Logo.png",
 // };
 
 let zelda = new Game(
@@ -183,6 +183,7 @@ function editOneItem(
 function displayForm() {
 	form!.classList.toggle("hide");
 	form!.scrollIntoView();
+	form!.dataset.mode = "add";
 }
 
 /***************************************************

@@ -1,6 +1,6 @@
 // Creating a GAME class
 
-class Game {
+export class Game {
 	name: string;
 	genre: string[];
 	publisher: string;

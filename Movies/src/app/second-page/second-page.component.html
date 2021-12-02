@@ -1,1 +1,62 @@
-<p>second-page works!</p>
+
+
+<h2>What movie are you suggesting ?</h2>
+
+<form class="container">
+    <div class="row input-container">
+        <div class="col-md-3 col-sm-6">
+            <div class="styled-input">
+                <input type="text" required id="name"/>
+                <label>Name</label> 
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="styled-input" style="float:right;">
+                <input type="number" min="1900" max="2021" step="1" id="year" required />
+                <label>Released year</label> 
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="styled-input" >
+                <input type="text" id="director"/>
+                <label>Director name</label> 
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <div class="styled-input" style="float:right;">
+                <input type="number"  min="1" max="240" step="1" id="duration" />
+                <label>Duration</label> 
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="styled-input wide">
+                <input type="text" required />
+                <label>Name</label> 
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="styled-input wide">
+                <input type="text" />
+                <label>Picture URL</label>
+            </div>
+        </div>
+        <div class="col-xs-12">
+				<div class="btn-lrg submit-btn">Send Message</div>
+			</div>
+        </div>
+    </form>
+<!--     
+    <h1>What movie are you suggesting ?</h1>
+    
+    <form>
+    <label for="name">Name :</label>
+    <input id="name" type="text"/>
+    <label for="year">Year of release :</label>
+    <input type="number" min="1900" max="2021" step="1" id="year"/>
+    <label for="director">Director :</label>
+    <input id="director" type="text"/>
+    <label for="genres">Genres :</label>
+    <input id="genres" type="text"/>
+    <label for="duration">Duration :</label>
+    <input id="duration" type="number" step="1"/>
+    </form> -->

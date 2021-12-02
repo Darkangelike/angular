@@ -16,8 +16,13 @@
 }
 
 body {
-  background: lightgray;
+  background: rgb(238, 227, 231);
 }
+
+img {
+  height: 75px;
+}
+
 /***********************************
 *************************************
 **********GLOBAL CLASSES************
@@ -37,28 +42,50 @@ body {
 /*********** NAV BAR ***************/
 
 nav {
-  background-color: cadetblue;
+  background-color: lightblue;
+
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+ul {
+  list-style-type: none;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
+li {
+  float: right;
 }
 
-nav ul li {
-  margin-left: 15px;
-  padding: 20px;
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 30px 16px;
+  text-decoration: none;
 }
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
 /**********************************
 ****************MAIN***************
 ***********************************/
 
-h1 {
+main {
   text-align: center;
-  margin: 5px;
+}
+
+h1,
+h2,
+p {
+  margin: 20px;
+  text-align: center;
 }
 
 /*********** SECTION ***************/

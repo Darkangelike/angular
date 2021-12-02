@@ -1,17 +1,23 @@
 <header>
   <nav>
+    
+      <a href=""><img src="../assets/logo.png" alt="" /></a>
     <ul>
-      <li><a>Home</a></li>
+      <li><a routerLink="/" routerLinkActive="active">Home</a></li>
       <li><a routerLink="/firstPage" routerLinkActive="active">Class</a></li>
       <li><a routerLink="/secondPage" routerLinkActive="active">Twice</a></li>
     </ul>
+    
+<router-outlet></router-outlet>
   </nav>
 </header>
 
 <main>
   <h1>Angular test area</h1>
-  <p></p>
-  <router-outlet></router-outlet>
+  <p>
+    This is a mock page in order to train with Angular's new concepts.<br />
+    Click on a link above and see the different lists created by the user.
+  </p>
 </main>
 
 <footer></footer>

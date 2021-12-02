@@ -6,4 +6,14 @@ import { Person } from './models/person';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {}
+export class AppComponent {
+chaeyoung : Person;
+mina : Person;
+
+constructor() {
+  this.chaeyoung = new Person ("Chaeyoung", "Son", new Date("1999/04/23")),
+  this.mina = new Person ("Mina", "Myoui", new Date("1997/03/24"))
+}
+
+
+}

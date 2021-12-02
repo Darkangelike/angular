@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Person } from '../models/person';
 
 @Component({
   selector: 'app-miniature-person',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MiniaturePersonComponent implements OnInit {
   constructor() {}
+  @Input() aPerson!: Person;
 
   ngOnInit(): void {}
 }

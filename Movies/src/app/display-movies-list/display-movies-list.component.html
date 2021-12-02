@@ -1,0 +1,1 @@
+<li class="card" *ngFor="let movie of tabMovies" >{{ movie.name }} <button (click)='clickEvent()'>X</button><p class="hidden">{{ movie.year | date: 'yyyy'}}</p></li>
